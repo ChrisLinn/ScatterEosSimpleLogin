@@ -2,10 +2,7 @@
 
 ## Usage
 + download [Scatter](https://github.com/GetScatter)
-+ .
-```bash
-./run.sh
-```
++ `./run.sh`
 
 ## TODO
 + trx for scatter
