@@ -1,6 +1,8 @@
 # ScatterEosSimpleLogin
 
 ## Usage
++ download [Scatter](https://github.com/GetScatter)
++ .
 ```bash
 ./run.sh
 ```
