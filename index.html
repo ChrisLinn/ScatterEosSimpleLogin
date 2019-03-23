@@ -28,8 +28,6 @@
 pick one of them:
 <br>
 <button onclick="transfer()">Transfer</button>
-<button onclick="contract()">Contract</button>
-<button onclick="donate()">Donate</button>
 
 
 <script>
@@ -95,24 +93,6 @@ pick one of them:
 //            console.error(err);
         })
     };
-
-    window.donate = () => {
-        const tokenDetails = {contract:'eosio.token', symbol:'EOS', memo:'', decimals:4};
-        // scatter.requestTransfer(network, 'eosio', 0, tokenDetails).then(res => console.log(res));
-        scatter.requestTransfer(network, 'eosio', '1.0000', tokenDetails).then(res => console.log(res));
-    };
-
-    window.contract = () => {
-        const account = scatter.identity.accounts.find(x => x.blockchain === 'eos');
-        const opts = { authorization:[`${account.name}@${account.authority}`] };
-        eos.contract('eosio.token', {requiredFields:{}}).then(contract => {
-            contract.transfer(account.name, 'eosio', '1.0000 EOS', '', opts).then(trx => {
-                console.log('trx', trx);
-            }).catch(err => {
-                console.error(err);
-            })
-        })
-    }
 
     window.suggestNetwork = async () => {
       await scatter.suggestNetwork(ScatterJS.Network.fromJson({
